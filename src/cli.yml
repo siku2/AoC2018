@@ -1,0 +1,21 @@
+name: AdventOfCode 2018
+version: "0.1.0"
+author: siku2
+about: True to the christmas spirit, I promise!
+args:
+  - DAY:
+      help: choose which puzzle to solve
+      required: true
+      index: 1
+
+  - part:
+      help: choose which sub problem to solve
+      short: p
+      long: part
+      default_value: "1"
+
+  - input:
+      help: where to get input from
+      short: i
+      long: input
+      takes_value: true
