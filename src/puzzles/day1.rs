@@ -1,15 +1,12 @@
 use std::collections::HashSet;
 use std::io::BufRead;
 
+use super::utils;
+
 pub fn solve_first<T: BufRead>(input: T) -> i32 {
     let mut frequency = 0;
 
-    for change in input.lines() {
-        let change = change.unwrap();
-        if ["EXIT", ""].contains(&change.as_str()) {
-            break;
-        }
-
+    for change in utils::get_lines(input) {
         let change: i32 = change.parse().unwrap();
         frequency += change;
     }
@@ -20,12 +17,7 @@ pub fn solve_first<T: BufRead>(input: T) -> i32 {
 pub fn solve_second<T: BufRead>(input: T) -> i32 {
     let mut frequency_changes = Vec::new();
 
-    for change in input.lines() {
-        let change = change.unwrap();
-        if ["EXIT", ""].contains(&change.as_str()) {
-            break;
-        }
-
+    for change in utils::get_lines(input) {
         let change: i32 = change.parse().unwrap();
         frequency_changes.push(change);
     }
