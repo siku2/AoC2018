@@ -5,3 +5,4 @@ authors = ["siku2"]
 
 [dependencies]
 clap = {version = "*", features = ["yaml"]}
+regex = "*"
