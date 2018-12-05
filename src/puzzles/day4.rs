@@ -1,5 +1,4 @@
 use std::collections::HashMap;
-use std::error::Error;
 use std::io::BufRead;
 
 use chrono::{NaiveDateTime, Timelike};
@@ -23,13 +22,13 @@ impl Sleep {
 }
 
 struct Shift {
-    start: NaiveDateTime,
+    _start: NaiveDateTime,
     sleeps: Vec<Sleep>,
 }
 
 impl Shift {
     fn new(start: NaiveDateTime) -> Shift {
-        Shift { start, sleeps: Vec::new() }
+        Shift { _start: start, sleeps: Vec::new() }
     }
 
     fn fall_asleep(&mut self, time: NaiveDateTime) {
