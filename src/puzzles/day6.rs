@@ -100,6 +100,7 @@ fn find_bounding_box(coordinates: &Vec<AreaOrigin>) -> Result<BoundingBox, Box<E
     Ok(BoundingBox { tl, br })
 }
 
+#[allow(dead_code)]
 fn draw_grid(grid: &HashMap<(u32, u32), AreaPoint>, bounds: &BoundingBox) -> String {
     let mut draw = String::new();
 
