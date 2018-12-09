@@ -9,6 +9,7 @@ use std::io::{BufRead, BufReader, stdin};
 use clap::App;
 
 mod puzzles;
+mod utils;
 
 fn main() {
     let yaml = load_yaml!("cli.yml");

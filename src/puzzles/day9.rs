@@ -4,7 +4,7 @@ use std::io::BufRead;
 
 use regex::Regex;
 
-use super::utils;
+use utils;
 
 fn rotate_deque<T>(deque: &mut VecDeque<T>, steps: isize) {
     if steps >= 0 {
@@ -47,8 +47,8 @@ fn get_input_params<T: BufRead>(input: T) -> Result<(u32, u32), Box<Error>> {
     let text = lines.get(0).unwrap();
     let captures = regex.captures(text.as_str()).ok_or("No match!")?;
 
-    let players: u32 = captures.name("players").unwrap().as_str().parse().unwrap();
-    let marbles: u32 = captures.name("marbles").unwrap().as_str().parse().unwrap();
+    let players: u32 = captures.name("players").unwrap().as_str().parse()?;
+    let marbles: u32 = captures.name("marbles").unwrap().as_str().parse()?;
 
     Ok((players, marbles))
 }

@@ -2,7 +2,7 @@ use std::collections::VecDeque;
 use std::io::BufRead;
 use std::iter::FromIterator;
 
-use super::utils;
+use utils;
 
 fn swap_case(c: &char) -> char {
     let mut next: Box<Iterator<Item=char>>;

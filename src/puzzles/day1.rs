@@ -1,7 +1,7 @@
 use std::collections::HashSet;
 use std::io::BufRead;
 
-use super::utils;
+use utils;
 
 pub fn solve_first<T: BufRead>(input: T) -> i32 {
     let mut frequency = 0;

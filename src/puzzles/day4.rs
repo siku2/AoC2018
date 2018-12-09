@@ -4,7 +4,7 @@ use std::io::BufRead;
 use chrono::{NaiveDateTime, Timelike};
 use regex::Regex;
 
-use super::utils;
+use utils;
 
 struct Sleep {
     start: NaiveDateTime,

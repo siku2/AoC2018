@@ -6,7 +6,7 @@ use std::io::BufRead;
 
 use regex::Regex;
 
-use super::utils;
+use utils;
 
 struct CoordinateIter {
     start: (u32, u32),

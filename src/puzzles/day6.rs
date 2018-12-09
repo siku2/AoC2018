@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use std::error::Error;
 use std::io::BufRead;
 
-use super::utils;
+use utils;
 
 #[derive(Clone, Copy, Debug)]
 struct AreaOrigin {

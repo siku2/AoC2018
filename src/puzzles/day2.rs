@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use std::io::BufRead;
 
-use super::utils;
+use utils;
 
 pub fn solve_first<T: BufRead>(input: T) -> u32 {
     let words = utils::get_lines(input);

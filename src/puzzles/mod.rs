@@ -10,8 +10,6 @@ mod day7;
 mod day8;
 mod day9;
 
-mod utils;
-
 pub fn solve<T>(day: u8, part: u8, input: T) -> Result<String, String> where T: BufRead {
     match day {
         1 => day1::solve(part, input),

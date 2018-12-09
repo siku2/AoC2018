@@ -1,6 +1,6 @@
 use std::io::BufRead;
 
-use super::utils;
+use utils;
 
 fn count_meta<'a, T: Iterator<Item=&'a String>>(input: &mut T) -> u32 {
     let mut sum = 0;

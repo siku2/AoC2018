@@ -5,7 +5,7 @@ use std::io::BufRead;
 
 use regex::Regex;
 
-use super::utils;
+use utils;
 
 fn get_connections(lines: &Vec<String>) -> Vec<(&str, &str)> {
     let mut connections: Vec<(&str, &str)> = Vec::new();
