@@ -7,6 +7,7 @@ mod day4;
 mod day5;
 mod day6;
 mod day7;
+mod day8;
 
 mod utils;
 
@@ -19,6 +20,7 @@ pub fn solve<T>(day: u8, part: u8, input: T) -> Result<String, String> where T: 
         5 => day5::solve(part, input),
         6 => day6::solve(part, input),
         7 => day7::solve(part, input),
+        8 => day8::solve(part, input),
         _ => Result::Err(format!("Can't handle day {} yet", day))
     }
 }
