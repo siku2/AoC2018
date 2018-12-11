@@ -1,5 +1,4 @@
 use std::collections::HashSet;
-use std::collections::VecDeque;
 use std::error::Error;
 use std::i32;
 use std::io::BufRead;
@@ -140,7 +139,7 @@ fn simulate(mut fragments: Vec<Fragment>) -> (HashSet<(i32, i32)>, u32) {
 
 pub fn solve_first<T: BufRead>(input: T) -> String {
     let lines = utils::get_lines(input);
-    let mut fragments: Vec<Fragment> = lines.iter()
+    let fragments: Vec<Fragment> = lines.iter()
         .map(|line| Fragment::parse(line.as_str()).unwrap())
         .collect();
 
@@ -150,7 +149,7 @@ pub fn solve_first<T: BufRead>(input: T) -> String {
 
 pub fn solve_second<T: BufRead>(input: T) -> u32 {
     let lines = utils::get_lines(input);
-    let mut fragments: Vec<Fragment> = lines.iter()
+    let fragments: Vec<Fragment> = lines.iter()
         .map(|line| Fragment::parse(line.as_str()).unwrap())
         .collect();
 
