@@ -13,22 +13,24 @@ mod day10;
 mod day11;
 mod day12;
 mod day13;
+mod day14;
 
 pub fn solve<T>(day: u8, part: u8, input: T) -> Result<String, String> where T: BufRead {
     match day {
-        1 => day1::solve(part, input),
-        2 => day2::solve(part, input),
-        3 => day3::solve(part, input),
-        4 => day4::solve(part, input),
-        5 => day5::solve(part, input),
-        6 => day6::solve(part, input),
-        7 => day7::solve(part, input),
-        8 => day8::solve(part, input),
-        9 => day9::solve(part, input),
+        01 => day1::solve(part, input),
+        02 => day2::solve(part, input),
+        03 => day3::solve(part, input),
+        04 => day4::solve(part, input),
+        05 => day5::solve(part, input),
+        06 => day6::solve(part, input),
+        07 => day7::solve(part, input),
+        08 => day8::solve(part, input),
+        09 => day9::solve(part, input),
         10 => day10::solve(part, input),
         11 => day11::solve(part, input),
         12 => day12::solve(part, input),
         13 => day13::solve(part, input),
+        14 => day14::solve(part, input),
         _ => Result::Err(format!("Can't handle day {} yet", day))
     }
 }
