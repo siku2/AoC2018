@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["siku2"]
 
 [dependencies]
-clap = {version = "*", features = ["yaml"]}
 chrono = "*"
+clap = {version = "*", features = ["yaml"]}
+rayon="*"
 regex = "*"

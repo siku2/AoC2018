@@ -1,6 +1,7 @@
 extern crate chrono;
 #[macro_use]
 extern crate clap;
+extern crate rayon;
 extern crate regex;
 
 use std::fs::File;
