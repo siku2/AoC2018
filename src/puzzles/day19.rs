@@ -104,7 +104,7 @@ fn divisor_sum(num: u64) -> u64 {
 
     for i in 2..=(num as f64).sqrt() as u64 {
         if num % i == 0 {
-            if i ^ 2 == num {
+            if i.pow(2) == num {
                 result += i;
             } else {
                 result += i + num / i;
