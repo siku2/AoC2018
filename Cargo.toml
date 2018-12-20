@@ -6,5 +6,6 @@ authors = ["siku2"]
 [dependencies]
 chrono = "*"
 clap = {version = "*", features = ["yaml"]}
-rayon="*"
+petgraph = "*"
+rayon = "*"
 regex = "*"
