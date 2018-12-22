@@ -21,6 +21,7 @@ mod day18;
 mod day19;
 mod day20;
 mod day21;
+mod day22;
 
 pub fn solve<T>(day: u8, part: u8, input: T) -> Result<String, String> where T: BufRead {
     match day {
@@ -45,6 +46,7 @@ pub fn solve<T>(day: u8, part: u8, input: T) -> Result<String, String> where T: 
         19 => day19::solve(part, input),
         20 => day20::solve(part, input),
         21 => day21::solve(part, input),
+        22 => day22::solve(part, input),
         _ => Result::Err(format!("Can't handle day {} yet", day))
     }
 }
