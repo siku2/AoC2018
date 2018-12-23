@@ -146,11 +146,22 @@ pub fn solve_second<T: BufRead>(input: T) -> u32 {
         .max_by(|a, b| a.len().cmp(&b.len()))
         .expect("no intersections");
 
-    let mut point = (0, 0, 0);
-    let mut step_factors = (0, 0, 0);
-    let mut step_signs = (0, 0, 0);
+    let mut point: Position = (0, 0, 0);
+    let mut step_factors = [0; 3];
+    let mut step_signs = [0; 3];
 
     static DEBUG: bool = false;
+
+    let mut get_step_factor = |step_factors: &mut [i32; 3], i: usize, sign: i32| {
+        if sign == step_signs[i] {
+            step_factors[i] += 1;
+        } else {
+            step_factors[i] = 0;
+            step_signs[i] = sign;
+        }
+
+        step_factors[i]
+    };
 
     loop {
         let mut out_of_range = HashSet::new();
@@ -171,43 +182,18 @@ pub fn solve_second<T: BufRead>(input: T) -> u32 {
         let direction = (avg.0 - point.0, avg.1 - point.1, avg.2 - point.2);
         let dir_norm = direction.direction();
 
-        let mut step_factor = 0;
-
+        let step_factor;
         if dir_norm.0 != 0 {
-            if dir_norm.0 == step_signs.0 {
-                step_factors.0 += 1;
-            } else {
-                step_factors.0 = dir_norm.0;
-                step_signs.0 = dir_norm.0;
-            }
-
-            step_factor = step_factors.0;
-        }
-
-        if dir_norm.1 != 0 {
-            if dir_norm.1 == step_signs.1 {
-                step_factors.1 += 1;
-            } else {
-                step_factors.1 = dir_norm.1;
-                step_signs.1 = dir_norm.1;
-            }
-
-            step_factor = step_factors.1;
-        }
-
-        if dir_norm.2 != 0 {
-            if dir_norm.2 == step_signs.2 {
-                step_factors.2 += 1;
-            } else {
-                step_factors.2 = dir_norm.2;
-                step_signs.2 = dir_norm.2;
-            }
-
-            step_factor = step_factors.2;
+            step_factor = get_step_factor(&mut step_factors, 0, dir_norm.0);
+        } else if dir_norm.1 != 0 {
+            step_factor = get_step_factor(&mut step_factors, 1, dir_norm.1);
+        } else if dir_norm.2 != 0 {
+            step_factor = get_step_factor(&mut step_factors, 2, dir_norm.2);
+        } else {
+            unreachable!();
         }
 
         let step = 1.5f32.powf(step_factor as f32) as i32;
-
         point.0 += dir_norm.0 * step;
         point.1 += dir_norm.1 * step;
         point.2 += dir_norm.2 * step;
@@ -216,7 +202,7 @@ pub fn solve_second<T: BufRead>(input: T) -> u32 {
             println!("missing {}", out_of_range.len());
             println!("target {:?}", avg);
             println!("factors {:?}", step_factors);
-            println!("direction {:?} {} -> speed {} x{}", dir_norm, direction.length(), step, step_factor);
+            println!("direction {:?} -> {}x", dir_norm, step);
             println!("new pos: {:?}\n", point);
             thread::sleep(Duration::from_millis(25));
         }
